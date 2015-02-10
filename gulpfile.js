@@ -141,45 +141,6 @@ function ucfirst(s) {
 	return s.slice(0, 1).toUpperCase() + s.substr(1);
 }
 
-function csonify(file) {
-	if(!csonify.isCSON(file)) {
-		return through();
-	}
-
-	var data = '';
-	var stream = through(write, end);
-
-	return stream;
-
-	var write = function(buf) {
-		data += buf;
-	};
-
-	var end = function() {
-		csonify.compile(file, data, function(error, result) {
-			if(error) {
-				stream.emit('error', error);
-			}
-			stream.queue(result);
-			stream.queue(null);
-		});
-	};
-};
-
-csonify.isCSON = function(s) {
-	return /\.cson$/.test(s);
-};
-
-csonify.compile = function(file, data, callback) {
-	CSON.parseFile(file, function(err, vars) {
-		if(err) {
-			callback(true);
-		}
-
-		callback(null, 'module.exports=' + JSON.stringify(vars));
-	});
-};
-
 
 
 
@@ -190,7 +151,6 @@ function configBundle(bundler, appname) {
 	bundler = bundler
 		.transform(coffeeify)
 		.transform(jadeify);
-		//.transform(csonify);
 
 	return bundler;
 }
