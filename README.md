@@ -1,2 +1,2 @@
 # SceneNav
-SceneNav for QingDao National High-tech Industrial Development Zone
+Frontend for QingDao National High-tech Industrial Development Zone's Scene Navigation Project
