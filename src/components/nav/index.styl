@@ -1,0 +1,90 @@
+.nav
+	position absolute
+	display block
+	height 72px
+	width 100%
+	left 0
+	right 0
+	bottom 0
+	z-index 100
+	background-color OCEAN_BLUE
+	border-top 2px solid #ffffff
+	ul
+		display block
+		margin 0 auto
+		width 556px
+		padding 0px
+		@media WIDER
+			width 806px
+		@media MOBILE
+			width 100%
+			margin 0
+		li
+			display block
+			float left
+			width 110px
+			height 72px
+			background-color OCEAN_BLUE
+			border-left 1px solid OCEAN_BLUE_DARKEN
+			border-right 1px solid OCEAN_BLUE_DARKEN
+			margin-left -1px
+			position relative
+			cursor pointer
+			&:hover
+				background-color OCEAN_BLUE_DARKEN
+			&.sel
+				background-color OCEAN_BLUE_DARKEN !important
+				cursor default
+			@media WIDER
+				width 160px
+			@media MOBILE
+				width 20%
+				border none
+				margin 0
+				&:hover
+					background-color OCEAN_BLUE
+			.nav-icon
+				width 32px
+				height 32px
+				margin 0 auto
+				margin-top 10px
+				background-position center center
+				background-repeat no-repeat
+			.nav-icon-1
+				background-image url('img/menu-icon-1.png')
+				@media RETINA
+					background-image url('img/menu-icon-1@2x.png')
+					background-size 100%
+			.nav-icon-2
+				background-image url('img/menu-icon-2.png')
+				@media RETINA
+					background-image url('img/menu-icon-2@2x.png')
+					background-size 100%
+			.nav-icon-3
+				background-image url('img/menu-icon-3.png')
+				@media RETINA
+					background-image url('img/menu-icon-3@2x.png')
+					background-size 100%
+			.nav-icon-4
+				background-image url('img/menu-icon-4.png')
+				@media RETINA
+					background-image url('img/menu-icon-4@2x.png')
+					background-size 100%
+			.nav-icon-5
+				background-image url('img/menu-icon-5.png')
+				@media RETINA
+					background-image url('img/menu-icon-5@2x.png')
+					background-size 100%
+			.nav-text
+				width 100%
+				line-height 22px
+				color #ffffff
+				font-size 14px
+				text-align center
+				@media MOBILE
+					font-size 12px
+
+
+
+
+
