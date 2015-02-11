@@ -30,6 +30,7 @@
 			margin-left -1px
 			position relative
 			cursor pointer
+			transition(all 0.2s ease-in-out)
 			&:hover
 				background-color OCEAN_BLUE_DARKEN
 			&.sel
@@ -83,6 +84,25 @@
 				text-align center
 				@media MOBILE
 					font-size 12px
+			.nav-sel
+				position absolute
+				width 10px
+				height 0px
+				display block
+				bottom 72px
+				left 50%
+				margin-left -5px
+				background-image url('img/nav-sel.png')
+				background-repeat no-repeat
+				background-position center bottom
+				transition(all 0.2s ease-in-out)
+				@media RETINA
+					background-image url('img/nav-sel@2x.png')
+					background-size 100%
+		.sel
+			.nav-sel
+				height 5px
+				bottom 67px
 
 
 
