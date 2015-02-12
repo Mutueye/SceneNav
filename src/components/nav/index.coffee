@@ -15,14 +15,14 @@ class Nav extends View
 
 	# Events #
 	clickHome: (e) ->
-		@changePage('home')
+		@changeNavSel('home')
 		@root().router.navigate('#!/', trigger: true)
 
 	clickMatters: (e) ->
-		@changePage('matters')
+		@changeNavSel('matters')
 		@root().router.navigate('#!/matters', trigger: true)
 
-	changePage: (pageName) ->
+	changeNavSel: (pageName) ->
 		if pageName != currentPage
 			if currentPage
 				@$("[data-nav='#{currentPage}']").removeClass('sel')

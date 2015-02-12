@@ -40,7 +40,7 @@ class Webapp extends View
 			@pages[page] = @currentPage
 		# show the page
 		@currentPage.show(req)
-		@nav.changePage(page)
+		@nav.changeNavSel(page)
 
 	drawPage: (page, options) ->
 		@currentPage = new Pages[page](options)
