@@ -1,5 +1,6 @@
 View = require('bamjs/view')
 MapNav = require('../map-nav')
+SiteLogo = require('../sitelogo')
 
 tmpl = require('./index.jade')
 
@@ -11,7 +12,12 @@ class PageHome extends View
 
 	draw: ->
 		@mapnav = new MapNav(
-			el: @$('.page-home')
+			el: @$('.map-nav')
+			parent: @
+		)
+
+		@sitelogo = new SiteLogo(
+			el: @$('.sitelogo')
 			parent: @
 		)
 
