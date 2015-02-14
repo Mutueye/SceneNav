@@ -1,7 +1,7 @@
 .nav
 	position absolute
 	display block
-	height 82px
+	height NAV_HEIGHT
 	width 100%
 	left 0
 	right 0
@@ -23,7 +23,7 @@
 			display block
 			float left
 			width 110px
-			height 82px
+			height NAV_HEIGHT
 			background-color OCEAN_BLUE
 			border-left 1px solid OCEAN_BLUE_DARKEN
 			border-right 1px solid OCEAN_BLUE_DARKEN
@@ -84,12 +84,19 @@
 				text-align center
 				@media MOBILE
 					font-size 12px
+			.nav-sub
+				position absolute
+				width 100px
+				height 100px
+				background-color #0c80e8
+				bottom NAV_HEIGHT + 2
+				left 0px
 			.nav-sel
 				position absolute
 				width 10px
 				height 0px
 				display block
-				bottom 82px
+				bottom NAV_HEIGHT
 				left 50%
 				margin-left -5px
 				background-image url('img/nav-sel.png')
@@ -102,7 +109,7 @@
 		.sel
 			.nav-sel
 				height 5px
-				bottom 77px
+				bottom NAV_HEIGHT - 5
 
 
 

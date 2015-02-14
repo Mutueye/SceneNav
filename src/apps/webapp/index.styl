@@ -8,6 +8,9 @@ ZI_main = 99
 ZI_map_nav = 1
 ZI_sitelogo = 2
 
+// Layout prefix
+NAV_HEIGHT = 82px
+
 body
 	background #f5f5f5
 
@@ -18,7 +21,7 @@ body
 	display block
 	overflow hidden
 	top 0
-	bottom 84px
+	bottom NAV_HEIGHT + 2
 	left 0
 	right 0
 	z-index ZI_main
@@ -27,7 +30,6 @@ body
 // Components
 @require '../../components/nav'
 @require '../../components/map-nav'
-@require '../../components/sitelogo'
 
 
 // Pages
