@@ -85,12 +85,43 @@
 				@media MOBILE
 					font-size 12px
 			.nav-sub
+				display none
 				position absolute
-				width 100px
-				height 100px
-				background-color #0c80e8
-				bottom NAV_HEIGHT + 2
-				left 0px
+				width 170px
+				height auto
+				background-color transparent
+				bottom NAV_HEIGHT
+				left 50%
+				margin-left -85px
+				padding-bottom 10px
+				position absolute
+				.nav-sub-btn
+					display block
+					height 40px
+					line-height 40px
+					color #ffffff
+					font-size 14px
+					width 100%
+					text-align center
+					text-decoration none
+					background OCEAN_BLUE
+					border-bottom 1px solid OCEAN_BLUE_DARKEN
+					&:hover
+						background OCEAN_BLUE_DARKEN
+				.nav-sub-arrow
+					position absolute
+					width 10px
+					height 5px
+					display block
+					bottom 5px
+					left 50%
+					margin-left -5px
+					background-image url('img/nav-sub-sel.png')
+					background-repeat no-repeat
+					background-position center top
+					@media RETINA
+						background-image url('img/nav-sub-sel@2x.png')
+						background-size 100%
 			.nav-sel
 				position absolute
 				width 10px
