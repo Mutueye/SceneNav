@@ -1,0 +1,89 @@
+.page-matters
+	position absolute
+	display block
+	left 0
+	right 0
+	top 0
+	bottom 0
+	padding-top COMMON_SPACE
+	background-color #d9e5f0
+	//background-image url('img/matter-page-bg.png')
+	//background-repeat repeat
+	overflow auto
+	-webkit-overflow-scrolling touch
+	@media MOBILE
+		padding-top COMMON_SPACE_MOBILE
+	//表格下载
+	.btn-BGXZ
+		width 100%
+		height auto
+		line-height 50px
+		font-size 16px
+		text-align center
+		color #ffffff
+		background-color PURPLE
+		cursor pointer
+		transition(all 0.1s ease-in-out)
+		&:hover
+			color #ffff00
+			background-color lighten(PURPLE,20%)
+	//一口受理按钮
+	.btn-YKSL
+		width 100%
+		height auto
+		line-height 50px
+		font-size 16px
+		text-align center
+		color #ffffff
+		background-color ORANGE_RED
+		cursor pointer
+		transition(all 0.1s ease-in-out)
+		&:hover
+			color #ffff00
+			background-color lighten(ORANGE_RED,20%)
+	.box-title
+		width 100%
+		height 46px
+		background-color #ffffff
+		border-bottom 1px solid GRAY_E3
+		position relative
+		@media MOBILE
+			border-bottom none
+		&-text
+			width auto
+			height 46px
+			line-height 46px
+			text-indent 12px
+			font-size 15px
+			color BLACK_GRAY
+		&-arrow-up
+			width 10px
+			height 10px
+			position absolute
+			right 18px
+			top 18px
+			background-image url('img/arrow-up.png')
+			background-size 100%
+			background-repeat no-repeat
+			display none
+			@media MOBILE
+				display block
+		&-arrow-down
+			width 10px
+			height 10px
+			position absolute
+			right 18px
+			top 18px
+			background-image url('img/arrow-down.png')
+			background-size 100%
+			background-repeat no-repeat
+			display none
+			@media MOBILE
+				display block
+			
+	.box-content
+		width 100%
+		height 200px
+		background-color SILVER_GRAY
+		
+
