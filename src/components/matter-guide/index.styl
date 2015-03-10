@@ -48,8 +48,8 @@
 			line-height 30px
 			@media MOBILE
 				font-size 12px
-				line-height 18px
-				padding-top 4px
+				line-height 16px
+				padding-top 2px
 .matter-head
 	width auto
 	height 54px
@@ -123,12 +123,21 @@
 		border-left 1px dotted GRAY_E3
 		color ORANGE_RED
 		cursor pointer
-		@media MOBILE
-			line-height 44px
 		&:hover
 			border-left 1px solid ORANGE_RED
 			background-color ORANGE_RED
 			color #FFFFFF
+		@media MOBILE
+			line-height 44px
+			&:hover
+				border-left 1px dotted GRAY_E3
+				color ORANGE_RED
+				background-color #ffffff
+	.btn-reselect.touched
+		border-left 1px solid ORANGE_RED
+		background-color ORANGE_RED
+		color #FFFFFF
+		
 .matter-head.sel
 	background-color #ffffff
 	margin-bottom COMMON_SPACE
@@ -174,13 +183,22 @@
 			color BLACK_GRAY
 			font-size 14px
 			cursor pointer
-			//white-space nowrap
+			white-space nowrap
 			overflow hidden
 			padding 0px 5px
 			&:hover
 				border-color GREEN
 				background-color GREEN
 				color #ffffff
+			@media MOBILE
+				&:hover
+					border-color GRAY_E3
+					background-color #ffffff
+					color BLACK_GRAY
+		.btn-select-matter.touched
+			border-color GREEN
+			background-color GREEN
+			color #ffffff
 				
 
 
