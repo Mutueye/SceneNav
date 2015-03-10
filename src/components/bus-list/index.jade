@@ -1,9 +1,9 @@
 .bus-list-bg.hidden
 .bus-list.hidden
-	.bus-list-title= resource.getName()
+	.bus-list-title= busListModel.getName()
 		.btn-close-list 关闭
 	.bus-list-content
-		- var buslines = resource.getBusLines().models
+		- var buslines = busListModel.getBusLines().models
 		for busline,i in buslines
 			if i < buslines.length - 1
 				.bus-line

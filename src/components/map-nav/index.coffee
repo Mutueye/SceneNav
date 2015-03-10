@@ -154,6 +154,6 @@ class MapNav extends View
 		@busList_2.show()
 
 	clickEnterHall: (e) ->
-		alert('建设中')
+		@root().router.navigate('#!/hall', trigger: true)
 
 module.exports = MapNav

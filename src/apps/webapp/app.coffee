@@ -6,6 +6,7 @@ url = require('url')
 Pages = 
 	home: require('../../components/page-home')
 	matters: require('../../components/page-matters')
+	hall: require('../../components/page-hall')
 
 Nav = require('../../components/nav')
 
@@ -26,6 +27,7 @@ class Webapp extends View
 			page = 'home'
 		else
 			page = req.name
+
 			
 		newPage = @pages[page]
 

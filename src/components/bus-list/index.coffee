@@ -12,10 +12,8 @@ class BusList extends View
 
 	initialize: ->
 		@$el.html(tmpl(
-			resource : @model
+			busListModel : @model
 		))
-
-		# alert(@model.getBusLines().models[0])
 
 	# events #
 	hide : (e) ->

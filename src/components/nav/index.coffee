@@ -21,12 +21,14 @@ class Nav extends View
 
 	# Events #
 	clickHome: (e) ->
+		# if !$('[data-nav = home]').hasClass('sel')
 		@changeNavSel('home')
 		@root().router.navigate('#!/', trigger: true)
 
 	clickMatters: (e) ->
-		@changeNavSel('matters')
-		@root().router.navigate('#!/matters', trigger: true)
+		if !$('[data-nav = matters]').hasClass('sel')
+			@changeNavSel('matters')
+			@root().router.navigate('#!/matters', trigger: true)
 
 	clickWSBS: (e) ->
 		# window.open('http://www.baidu.com')
