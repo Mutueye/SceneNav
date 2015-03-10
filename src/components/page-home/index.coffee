@@ -9,11 +9,13 @@ class PageHome extends View
 	initialize: ->
 		@$el.html(tmpl())
 
-	draw: ->
 		@mapnav = new MapNav(
 			el: @$('.map-nav')
 			parent: @
 		)
+
+	draw: ->
+		
 
 	hide: ->
 		@$el.addClass('hidden')

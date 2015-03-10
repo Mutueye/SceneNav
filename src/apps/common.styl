@@ -2,8 +2,19 @@
 
 // colors
 SILVER_GRAY = #f5f5f5
+GRAY_E3 = #e3e3e3
+BLACK_GRAY = #333333
+BLACK_GRAY_LIGHT = #666666
 OCEAN_BLUE = #0c80e8
 OCEAN_BLUE_DARKEN = #0070d8
+ORANGE_RED = #e4420a
+ORANGE_RED_DARKEN = #d53802
+GREEN = #09be00
+GREEN_DARKEN = #5dbc00
+BROWN = #be7d00
+BROWN_DARKEN = #ad7200
+PURPLE = #b20cd0
+PURPLE_DARKEN = #a103bd
 
 
 // media query
@@ -19,3 +30,95 @@ transition()
 	-moz-transition arguments
 	-o-transition arguments
 	transition arguments
+
+//hidden
+.hidden
+	display none !important
+
+.mobile-hidden
+	display block
+	@media MOBILE
+		display none !important
+
+// common layout
+//-----------------------------------------------------------------------------------------
+COMMON_SPACE = 20px
+COMMON_SPACE_MOBILE = 12px
+COMMON_WIDTH = 960px
+COMMON_WIDTH_WIDER = 1200px
+
+.test-box
+	width 100%
+	height 100px
+	background #ff00ff
+
+.row-container
+	width COMMON_WIDTH
+	margin 0 auto
+	@media WIDER
+		width COMMON_WIDTH_WIDER
+	@media MOBILE
+		width auto
+		margin-left COMMON_SPACE_MOBILE
+
+.row-content
+
+	width COMMON_WIDTH + COMMON_SPACE
+	@media WIDER
+		width COMMON_WIDTH_WIDER + COMMON_SPACE
+	@media MOBILE
+		width 100%
+
+.row
+	width 100%
+	height auto
+	display block
+	.col-1of1
+		width 100%
+		float left
+	.col-1of2
+		width 50%
+		float left
+	.col-1of3
+		width 33.333%
+		float left
+	.col-2of3
+		width 66.666%
+		float left
+	.col-1of4
+		width 25%
+		float left
+	.col-1of4.suit-mobile
+		@media MOBILE
+			width 100%
+	.col-1of4.suit-mobile-1of2
+		@media MOBILE
+			width 50%
+	.col-3of4
+		width 75%
+		float left
+	.col-3of4.suit-mobile
+		@media MOBILE
+			width 100%
+	.col-1of5
+		width 20%
+		float left
+	.col-2of5
+		width 40%
+		float left
+	.col-3of5
+		width 60%
+		float left
+	.col-4of5
+		width 80%
+		float left
+	.col-content
+		width auto
+		display block
+		margin-right COMMON_SPACE
+		margin-bottom COMMON_SPACE
+		@media MOBILE
+			margin-right COMMON_SPACE_MOBILE
+			margin-bottom COMMON_SPACE_MOBILE
+
+

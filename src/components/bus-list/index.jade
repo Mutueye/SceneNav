@@ -1,0 +1,15 @@
+.bus-list-bg.hidden
+.bus-list.hidden
+	.bus-list-title= resource.getName()
+		.btn-close-list 关闭
+	.bus-list-content
+		- var buslines = resource.getBusLines().models
+		for busline,i in buslines
+			if i < buslines.length - 1
+				.bus-line
+					.bus-line-title= busline.getName()
+					.bus-line-intro!= busline.getIntro()
+			else
+				.bus-line.bus-line-last
+					.bus-line-title= busline.getName()
+					.bus-line-intro!= busline.getIntro()

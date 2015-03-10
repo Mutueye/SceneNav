@@ -29,7 +29,8 @@ class Nav extends View
 		@root().router.navigate('#!/matters', trigger: true)
 
 	clickWSBS: (e) ->
-		window.open('http://www.baidu.com')
+		# window.open('http://www.baidu.com')
+		alert('链接到高新区政务网网上办事页面')
 
 	clickLSLP: (e) ->
 		if $('[data-nav = lslp-sub]').css('display') == 'none'
@@ -40,13 +41,16 @@ class Nav extends View
 		e.stopImmediatePropagation()
 
 	clickLSLP1: (e) ->
-		window.open('http://www.baidu.com')
+		# window.open('http://www.baidu.com')
+		alert('链接到高新区政务网市场主体设立联审联批页面')
 
 	clickLSLP2: (e) ->
-		window.open('http://www.baidu.com')
+		# window.open('http://www.baidu.com')
+		alert('链接到高新区政务网建设工程项目联审联批页面')
 
 	clickHDJL: (e) ->
-		window.open('http://www.baidu.com')
+		# window.open('http://www.baidu.com')
+		alert('链接到高新区政务网互动交流页面')
 
 
 
