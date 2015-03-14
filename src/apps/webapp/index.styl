@@ -28,13 +28,19 @@ body
 	right 0
 	z-index ZI_main
 	background #f0f0f0
+	@media MOBILE
+		bottom NAV_HEIGHT - 8
 
 // Components
 @require '../../components/nav'
 @require '../../components/map-nav'
+@require '../../components/map-hall'
+@require '../../components/map-hall-btn'
+@require '../../components/map-hall-floor'
 @require '../../components/bus-list'
 @require '../../components/matter-list'
 @require '../../components/matter-guide'
+
 
 
 // Pages

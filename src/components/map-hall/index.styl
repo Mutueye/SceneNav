@@ -1,0 +1,82 @@
+.hall-bg
+	background-color:#dedccb;
+.hall-area
+	position absolute
+	width 1920px
+	height 960px
+	left 50%
+	top 50%
+	margin-left -960px
+	margin-top -480px
+.hall-f1
+	background-image url('img/map-f1.jpg')
+.hall-f2
+	background-image url('img/map-f2.jpg')
+.hall-btn
+	width auto
+	position absolute
+	line-height 36px
+	background-color OCEAN_BLUE
+	color #ffffff
+	padding 0 15px
+	text-align center
+	cursor pointer
+	font-size 14px
+	transition(all 0.1s ease-in-out)
+	&:hover
+		background-color lighten(OCEAN_BLUE,20%)
+		@media MOBILE
+			background-color OCEAN_BLUE
+.hall-btn-return
+	left 20px
+	top 20px
+	padding-left 25px
+	&:hover
+		background-position 8px center
+	@media MOBILE
+		left 10px
+		top 10px
+	.arrow-return
+		position absolute
+		width 16px
+		height 16px
+		left 10px
+		top 10px
+		background-image url('img/arrow-return.png')
+		background-repeat no-repeat
+		@media RETINA
+			background-image url('img/arrow-return@2x.png')
+			background-size 100%
+.hall-btn-f1
+	padding 0
+	width 60px
+	right 90px
+	top 20px
+	@media MOBILE
+		right 80px
+		top 10px
+.hall-btn-f2
+	padding 0
+	width 60px
+	right 20px
+	top 20px
+	@media MOBILE
+		right 10px
+		top 10px
+.floor-indicator
+	width 60px
+	height 4px
+	right 90px
+	top 58px
+	position absolute
+	background GREEN
+	transition(all 0.2s ease-in-out)
+	@media MOBILE
+		right 80px
+		top 48px
+.floor-indicator.f2
+	right 20px
+	@media MOBILE
+		right 10px
+
+

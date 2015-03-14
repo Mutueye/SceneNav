@@ -1,0 +1,4 @@
+- var mhbs = mhbcollection.models
+	for mhb,i in mhbs
+		- var pos = 'left : '+mhb.getXpos() + '; top : ' + mhb.getYpos() +';'
+		.mhb(style=pos)

@@ -1,5 +1,5 @@
 View = require('bamjs/view')
-
+MapHall = require('../map-hall')
 tmpl = require('./index.jade')
 
 class PageHall extends View
@@ -7,6 +7,11 @@ class PageHall extends View
 
 	initialize: ->
 		@$el.html(tmpl())
+
+		@maphall = new MapHall(
+			el: @$('.page-hall')
+			parent: @
+		)
 
 	draw: ->
 

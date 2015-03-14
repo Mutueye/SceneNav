@@ -9,6 +9,8 @@
 	z-index ZI_nav
 	background-color OCEAN_BLUE
 	border-top 2px solid #ffffff
+	@media MOBILE
+		height NAV_HEIGHT - 10
 	ul
 		display block
 		margin 0 auto
@@ -42,6 +44,7 @@
 				width 20%
 				border none
 				margin 0
+				height NAV_HEIGHT - 10
 				&:hover
 					background-color OCEAN_BLUE
 			.nav-icon
@@ -51,6 +54,8 @@
 				margin-top 15px
 				background-position center center
 				background-repeat no-repeat
+				@media MOBILE
+					margin-top 10px
 			.nav-icon-1
 				background-image url('img/menu-icon-1.png')
 				@media RETINA
@@ -95,6 +100,8 @@
 				margin-left -85px
 				padding-bottom 10px
 				position absolute
+				@media MOBILE
+					bottom NAV_HEIGHT - 10
 				.nav-sub-btn
 					display block
 					height 40px
@@ -137,10 +144,14 @@
 				@media RETINA
 					background-image url('img/nav-sel@2x.png')
 					background-size 100%
+				@media MOBILE
+					bottom NAV_HEIGHT - 10
 		.sel
 			.nav-sel
 				height 5px
 				bottom NAV_HEIGHT - 5
+				@media MOBILE
+					bottom NAV_HEIGHT - 15
 
 
 
