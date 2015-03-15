@@ -19,90 +19,44 @@ class PageMatters extends View
 	initialize: ->
 		@$el.html(tmpl())
 
-		
-		#@rmsxModelArray = [
-		#	{
-		#		Info : '开办个人独资企业'
-		#		Link : '#'
-		#	}
-		#	{
-		#		Info : '外商投资企业营业执照办理'
-		#		Link : '#'
-		#	}
-		#	{
-		#		Info : '公司名称变更'
-		#		Link : '#'
-		#	}
-		#	{
-		#		Info : '证照章遗失补办'
-		#		Link : '#'
-		#	}
-		#	{
-		#		Info : '非公司企业集团注销'
-		#		Link : '#'
-		#	}
-		#	{
-		#		Info : '个体商户设立申请指南'
-		#		Link : '#'
-		#	}
-		#]
-
 		@rmsxCollection = new MatterCollection()
+		@rmsxCollection.url = 'data/rmsx.json'
 		@rmsxCollection.fetch(
 			reset : true
 			success : (collection, resp, options)->
-				console.info('请求成功触发！')
-				console.info(resp)
+				console.info('请求成功触发')
 			error:(collection, response)->
 				console.info("error"+":"+response.responseText)
 		)
-
-		@kstdModelArray = [
-			{
-				Info : '外商投资企业分支机构设立'
-				Link : '#'
-			}
-			{
-				Info : '证照章遗失补办'
-				Link : '#'
-			}
-			{
-				Info : '开办个人独资企业'
-				Link : '#'
-			}
-			{
-				Info : '中外合资企业注册'
-				Link : '#'
-			}
-			{
-				Info : '外商投资企业营业执照办理'
-				Link : '#'
-			}
-			{
-				Info : '非公司企业集团注销'
-				Link : '#'
-			}
-		]
-
-		@kstdCollection = new MatterCollection(@kstdModelArray)
-
-	draw: ->
-		@matterguide = new MatterGuide(
-			el : @$('#matter_guide')
-			parent : @
-		)
-
 		@rmsxlist = new MatterList(
 			el:@$('#list_rmsx_content')
 			parent : @
 			collection : @rmsxCollection
 		)
 
+		
+		@kstdCollection = new MatterCollection()
+		@kstdCollection.url = 'data/kstd.json'
+		@kstdCollection.fetch(
+			reset : true
+			success : (collection, resp, options)->
+				console.info('请求成功触发')
+			error:(collection, response)->
+				console.info("error"+":"+response.responseText)
+		)
 		@kstdlist = new MatterList(
 			el:@$('#list_kstd_content')
 			parent : @
 			collection : @kstdCollection
 		)
+
+		@matterguide = new MatterGuide(
+			el : @$('#matter_guide')
+			parent : @
+		)
+		
+
+	draw: ->
 
 	# events #
 	onBtnBGXZ: (e) ->
