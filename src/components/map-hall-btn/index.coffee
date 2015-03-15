@@ -31,6 +31,7 @@ class MapHallBtn extends View
 		@$('.map-hall-btn').removeClass('sel')
 
 	onBtnClick: (e) ->
-		window.open(@model.getLink())
+		if(@model.getLink() != '')
+			window.open(@model.getLink())
 
 module.exports = MapHallBtn
