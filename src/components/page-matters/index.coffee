@@ -51,7 +51,10 @@ class PageMatters extends View
 		@rmsxCollection.fetch(
 			reset : true
 			success : (collection, resp, options)->
-				alert('请求成功触发！')
+				console.info('请求成功触发！')
+				console.info(resp)
+			error:(collection, response)->
+				console.info("error"+":"+response.responseText)
 		)
 
 		@kstdModelArray = [

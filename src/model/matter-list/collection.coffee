@@ -4,6 +4,6 @@ Matter = require('./')
 
 class Matters extends Collection
 	model : Matter
-	url : 'http://192.168.1.105:9090/TestFetch.aspx'
+	url : 'data/rmsx.json'
 
 module.exports = Matters
