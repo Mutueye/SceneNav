@@ -19,34 +19,40 @@ class PageMatters extends View
 	initialize: ->
 		@$el.html(tmpl())
 
-		@rmsxModelArray = [
-			{
-				Info : '开办个人独资企业'
-				Link : '#'
-			}
-			{
-				Info : '外商投资企业营业执照办理'
-				Link : '#'
-			}
-			{
-				Info : '公司名称变更'
-				Link : '#'
-			}
-			{
-				Info : '证照章遗失补办'
-				Link : '#'
-			}
-			{
-				Info : '非公司企业集团注销'
-				Link : '#'
-			}
-			{
-				Info : '个体商户设立申请指南'
-				Link : '#'
-			}
-		]
+		
+		#@rmsxModelArray = [
+		#	{
+		#		Info : '开办个人独资企业'
+		#		Link : '#'
+		#	}
+		#	{
+		#		Info : '外商投资企业营业执照办理'
+		#		Link : '#'
+		#	}
+		#	{
+		#		Info : '公司名称变更'
+		#		Link : '#'
+		#	}
+		#	{
+		#		Info : '证照章遗失补办'
+		#		Link : '#'
+		#	}
+		#	{
+		#		Info : '非公司企业集团注销'
+		#		Link : '#'
+		#	}
+		#	{
+		#		Info : '个体商户设立申请指南'
+		#		Link : '#'
+		#	}
+		#]
 
-		@rmsxCollection = new MatterCollection(@rmsxModelArray)
+		@rmsxCollection = new MatterCollection()
+		@rmsxCollection.fetch(
+			reset : true
+			success : (collection, resp, options)->
+				alert('请求成功触发！')
+		)
 
 		@kstdModelArray = [
 			{
