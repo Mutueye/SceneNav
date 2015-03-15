@@ -9,7 +9,7 @@ class MatterList extends View
 	initialize: ->
 		@collection.on(
 			'reset', 
-			()-> @render(), 
+			-> @render(), 
 			@ 
 		)
 		
