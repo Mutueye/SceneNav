@@ -6,9 +6,15 @@ class MatterGuideNode extends View
 	namespace = 'matter-guide-node'
 
 	initialize: ->
+		
+
+	setNodeView: (type, selected_id) ->
 		@$el.html(tmpl(
-			mNode : @model
+			mData : @model
+			type : type
+			id : selected_id
 		))
+		alert(type)
 
 
 module.exports = MatterGuideNode
