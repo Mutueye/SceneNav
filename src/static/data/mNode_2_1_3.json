@@ -1,0 +1,7 @@
+{
+	"Type" : "list",
+	"Level" : 3,
+	"DataUrl" : "data/mData_2_1_3.json",
+	"ParentUrl" : "data/mNode_2_1.json",
+	"ParentID" : 2
+}

@@ -1,12 +1,12 @@
 Model = require('bamjs/backbone').Model
 
-class BusLine extends Model
+class MFormBtn extends Model
 	
 	defaults:
 		Name : ''
-		Intro : ''
+		Url : ''
 
 	getName: -> @get('Name')
-	getIntro: -> @get('Intro')
+	getUrl: -> @get('Url')
 
-module.exports = BusLine
+module.exports = MFormBtn

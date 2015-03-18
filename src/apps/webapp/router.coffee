@@ -9,7 +9,7 @@ class AppRouter extends Router
 	buildRoutes: ->
 		@route('!/', 'home', @showPage)
 		@route('!/hall', 'hall', @showPage)
-		@route('!/matters', 'matters', @showPage)
+		@route('!/matters/:data', 'matters', @showPage)
 
 	showPage: (req)->
 		@app.showPage(req)

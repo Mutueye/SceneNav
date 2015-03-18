@@ -1,6 +1,7 @@
 ul.ulist
 	width auto
 	height auto
+	border-top 1px solid GRAY_E3
 	li
 		width 100%
 		height auto
@@ -15,11 +16,15 @@ ul.ulist
 			text-decoration none
 			position relative
 			&:hover
-				background-color #ffffff
-				color BLACK_GRAY
+				background-color OCEAN_BLUE
+				color #ffffff
+				.ulist-dot
+					background-color #ffffff
 				@media MOBILE
 					background-color transparent
 					color lighten(BLACK_GRAY,20%)
+					.ulist-dot
+						background-color lighten(BLACK_GRAY,20%)
 			.ulist-dot
 				position absolute
 				width 2px

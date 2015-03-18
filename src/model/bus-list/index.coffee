@@ -1,4 +1,4 @@
-Model = require('bamjs/model')
+Model = require('bamjs/backbone').Model
 
 class BusList extends Model
 	

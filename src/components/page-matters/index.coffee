@@ -9,6 +9,7 @@ MatterCollection = require('../../model/matter-list/collection')
 
 class PageMatters extends View
 	namespace = 'page-matters'
+	
 
 	events:
 		'click #btn_bgxz' : 'onBtnBGXZ'
@@ -20,7 +21,7 @@ class PageMatters extends View
 		@$el.html(tmpl())
 
 		@rmsxCollection = new MatterCollection()
-		@rmsxCollection.url = 'data/rmsx.json'
+		@rmsxCollection.url = 'data/list_rmsx.json'
 		@rmsxCollection.fetch(
 			reset : true
 			success : (collection, resp, options)->
@@ -36,7 +37,7 @@ class PageMatters extends View
 
 		
 		@kstdCollection = new MatterCollection()
-		@kstdCollection.url = 'data/kstd.json'
+		@kstdCollection.url = 'data/list_kstd.json'
 		@kstdCollection.fetch(
 			reset : true
 			success : (collection, resp, options)->
@@ -56,7 +57,9 @@ class PageMatters extends View
 		)
 		
 
-	draw: ->
+	setMatterGuide: (param) ->
+		nodeUrl = 'data/' + param + '.json'
+		@matterguide.buildMatterNode(nodeUrl)
 
 	# events #
 	onBtnBGXZ: (e) ->

@@ -25,8 +25,10 @@ class Webapp extends View
 	showPage: (req) ->
 		if !req
 			page = 'home'
+			param = null
 		else
 			page = req.name
+			param = req.values[0]
 
 			
 		newPage = @pages[page]
@@ -38,15 +40,17 @@ class Webapp extends View
 			options = 
 				el: @$("[id='!/#{page}']")
 				parent: @
-			@drawPage(page, options)
+			@drawPage(page, param, options)
 			@pages[page] = @currentPage
 		# show the page
 		@currentPage.show(req)
 		@nav.changeNavSel(page)
+		switch page
+			when 'matters'
+				@currentPage.setMatterGuide(param)
 
-	drawPage: (page, options) ->
+	drawPage: (page, param, options) ->
 		@currentPage = new Pages[page](options)
-		@currentPage.draw()
 
 
 

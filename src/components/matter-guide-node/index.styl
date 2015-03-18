@@ -1,0 +1,149 @@
+.matter-head
+	width auto
+	height 54px
+	background-color transparent
+	display block
+	position relative
+	margin-bottom 2px
+	@media MOBILE
+		height 44px
+	.matter-head-number
+		width 44px
+		height 34px
+		line-height 34px
+		float left
+		border 10px solid #ffffff
+		background-color GREEN
+		text-align center
+		font-size 16px
+		color #ffffff
+		font-weight bold
+		@media MOBILE
+			border 5px solid #ffffff
+	.matter-head-text
+		width auto
+		line-height 54px
+		background-color #ffffff
+		text-align left
+		float left
+		display block
+		font-size 16px
+		color BLACK_GRAY
+		@media MOBILE
+			line-height 44px
+			font-size 14px
+	.matter-head-tail
+		width 54px
+		height 54px
+		display block
+		float left
+		background-image url('img/matter-head-tail.png')
+		background-repeat no-repeat
+		@media RETINA
+			background-image url('img/matter-head-tail@2x.png')
+			background-size 100%
+		@media MOBILE
+			width 44px
+			height 44px
+	.dotted-vline
+		position absolute
+		left 32px
+		bottom 43px
+		width 2px
+		height COMMON_SPACE + 20
+		background-image url('img/dotted-vline.png')
+		background-repeat repeat-y
+		@media RETINA
+			background-image url('img/dotted-vline@2x.png')
+			background-size 100%
+		@media MOBILE
+			left 27px
+			bottom 37px
+	.btn-reselect
+		position absolute
+		width auto
+		line-height 54px
+		right 0
+		top 0
+		font-size 14px
+		text-align center
+		padding 0 COMMON_SPACE
+		border-left 1px dotted GRAY_E3
+		color ORANGE_RED
+		cursor pointer
+		&:hover
+			border-left 1px solid ORANGE_RED
+			background-color ORANGE_RED
+			color #FFFFFF
+		@media MOBILE
+			line-height 44px
+			&:hover
+				border-left 1px dotted GRAY_E3
+				color ORANGE_RED
+				background-color #ffffff
+	.btn-reselect.touched
+		border-left 1px solid ORANGE_RED
+		background-color ORANGE_RED
+		color #FFFFFF
+		
+.matter-head.sel
+	background-color #ffffff
+	margin-bottom COMMON_SPACE
+	@media MOBILE
+		margin-bottom COMMON_SPACE_MOBILE
+.matter-infobox
+	display block
+	width 100%
+	margin-bottom COMMON_SPACE
+	position relative
+	.matter-infobox-corner
+		width 10px
+		height 10px
+		position absolute
+		background-image url('img/matter-infobox-corner.png')
+		left 54px
+		top 0px
+		@media MOBILE
+			left 44px
+		@media RETINA
+			background-image url('img/matter-infobox-corner@2x.png')
+			background-size 100%
+	.matter-infobox-content
+		width auto
+		padding COMMON_SPACE
+		padding-right 0
+		padding-bottom 0
+		display block
+		background-color #ffffff
+		margin-left 64px
+		overflow hidden
+		@media MOBILE
+			margin-left 49px
+			padding COMMON_SPACE_MOBILE
+			padding-right 0
+			padding-bottom 0
+		.btn-select-matter
+			width auto
+			display block
+			border 1px solid GRAY_E3
+			line-height 34px
+			text-align center
+			color BLACK_GRAY
+			font-size 14px
+			cursor pointer
+			white-space nowrap
+			overflow hidden
+			padding 0px 5px
+			&:hover
+				border-color GREEN
+				background-color GREEN
+				color #ffffff
+			@media MOBILE
+				&:hover
+					border-color GRAY_E3
+					background-color #ffffff
+					color BLACK_GRAY
+		.btn-select-matter.touched
+			border-color GREEN
+			background-color GREEN
+			color #ffffff

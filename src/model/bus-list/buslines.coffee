@@ -1,4 +1,4 @@
-Collection = require('bamjs/collection')
+Collection = require('bamjs/backbone').Collection
 
 BusLine = require('./busline')
 

@@ -1,0 +1,11 @@
+{
+	"ID" : "事项ID",
+	"Type" : "事项类别",
+	"Unit" : "受理单位",
+	"TimeLimit" : "办理期限",
+	"Conditions" : "办理条件",
+	"Materials" : "所需申办材料",
+	"Procedures" : "办理流程",
+	"Basis" : "设立依据",
+	"Forms" "data/form_example.json"
+}

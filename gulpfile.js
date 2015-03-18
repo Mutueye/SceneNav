@@ -180,7 +180,7 @@ function bundle(appname, env, callback, extension, once) {
 		.bundle()
 		.on('error', handleError)
 		.pipe(source('app.js'))
-		.pipe(streamify(uglify()))
+		//.pipe(streamify(uglify()))
 		.pipe(duration('Bundling app "' + appname + '"'))
 				.on('end', function() {
 			console.log(ucfirst(appname) + ' is ready on http://localhost:' + APP_PORT);
