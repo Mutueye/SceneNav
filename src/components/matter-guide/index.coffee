@@ -24,22 +24,10 @@ class MatterGuide extends View
 		@targetMNode.url = nodeUrl
 		@targetMNode.fetch(
 			success : (model, resp, options)->
-				console.log('读取导航节点数据成功')
-				if currentNodeLevel < model.getLevel()
+				setLevelID(model.getLevel(), currentNodeLevel)		
+				if currentUrl != nodeUrl
 					createOneNode(model, currentNodeLevel-1, currentUrl)
-					appeendNewNode(model,'end',null)
-
-				if currentNodeLevel > model.getLevel()
-					$('#level_'+currentNodeLevel).remove()
-					createOneNode(model, currentNodeLevel-1, currentUrl)
-					appeendNewNode(model,'end',null)
-
-				if currentNodeLevel == model.getLevel()	
-					if currentUrl != nodeUrl
-						$('#level_'+currentNodeLevel).remove()
-						createOneNode(model, currentNodeLevel-1, currentUrl)
-						appeendNewNode(model,'end',null)
-
+					appeendNewNode(model, 'end', null, null)
 				currentNodeLevel = model.getLevel()
 				currentUrl = nodeUrl
 
@@ -53,33 +41,35 @@ class MatterGuide extends View
 			newMNode.url = childModel.getParentUrl()
 			newMNode.fetch(
 				success : (model, resp, options)->
-					console.log('读取父节点成功')
-					if thisNodeLevel < model.getLevel()
+					routerUrl = childModel.getParentUrl().slice(5,-5)
+					if currentUrl != childModel.getParentUrl()
 						createOneNode(model, thisNodeLevel-1)
-						appeendNewNode(model, 'selected', childModel.getParentID())
-
-					if thisNodeLevel > model.getLevel()
-						$('#level_'+thisNodeLevel).remove()
-						createOneNode(model, thisNodeLevel-1)
-						appeendNewNode(model, 'selected', childModel.getParentID())
-
-					if thisNodeLevel == model.getLevel()
-						if currentUrl != childModel.getParentUrl()
-							$('#level_'+thisNodeLevel).remove()
-							createOneNode(model, thisNodeLevel-1)
-							appeendNewNode(model, 'selected', childModel.getParentID())
-
+					appeendNewNode(model, 'selected', childModel.getParentID(), routerUrl)			
 				error : (model, resp, options)->
-					console.log('读取父节点失败')
+					console.error('读取父节点失败')
 			)
 
-	appeendNewNode = (model,type,selected_id)->
-		$('#matter-guide-nodes').append('<div id="level_'+ model.getLevel()+'"></div>')
+	appeendNewNode = (model,type,selected_id,selected_url)->	
 		matterGuideNode = new MatterGuideNode(
 			el : $('#level_'+model.getLevel())
 			model : model
 		)
-		matterGuideNode.setNodeView(type, selected_id)
+		matterGuideNode.setNodeView(type, selected_id,selected_url)
+
+	setLevelID = (level, currentNodeLevel)->
+		if(currentNodeLevel > level)
+			$('#level_'+ currentNodeLevel).remove()
+			setLevelID(level, currentNodeLevel-1)
+		if(currentNodeLevel == level)
+			if !$('#level_'+level).html()
+				$('#matter-guide-nodes').append('<div id = "level_' + level + '"></div>')
+		if(currentNodeLevel < level)
+			if !$('#level_'+currentNodeLevel).html()
+				$('#matter-guide-nodes').append('<div id = "level_' + currentNodeLevel + '"></div>')
+			setLevelID(level, currentNodeLevel+1)
+		
+		
+		
 
 
 	

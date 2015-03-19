@@ -1,22 +1,22 @@
 [
 	{
 		"Name" : "企业设立、变更",
-		"type" : "list",
+		"Type" : "list",
 		"Url" : "data/mNode_1.json"
 	},
 	{
 		"Name" : "建设项目审批",
-		"type" : "list",
+		"Type" : "list",
 		"Url" : "data/mNode_2.json"
 	},
 	{
 		"Name" : "重点项目",
-		"type" : "link",
+		"Type" : "link",
 		"Url" : "http://www.baidu.com/"
 	},
 	{
 		"Name" : "代办服务",
-		"type" : "link",
+		"Type" : "link",
 		"Url" : "http://www.baidu.com"
 	}
 ]

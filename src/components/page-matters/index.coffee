@@ -24,8 +24,8 @@ class PageMatters extends View
 		@rmsxCollection.url = 'data/list_rmsx.json'
 		@rmsxCollection.fetch(
 			reset : true
-			success : (collection, resp, options)->
-				console.info('请求成功触发')
+			#success : (collection, resp, options)->
+			#	console.info('请求成功触发')
 			error:(collection, response)->
 				console.info("error"+":"+response.responseText)
 		)
@@ -40,8 +40,8 @@ class PageMatters extends View
 		@kstdCollection.url = 'data/list_kstd.json'
 		@kstdCollection.fetch(
 			reset : true
-			success : (collection, resp, options)->
-				console.info('请求成功触发')
+			#success : (collection, resp, options)->
+			#	console.info('请求成功触发')
 			error:(collection, response)->
 				console.info("error"+":"+response.responseText)
 		)

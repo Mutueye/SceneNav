@@ -3,6 +3,7 @@ Model = require('bamjs/backbone').Model
 class MDataTable extends Model
 	
 	defaults:
+		Name : ''
 		ID : ''
 		Type : ''
 		Unit : ''
@@ -13,8 +14,9 @@ class MDataTable extends Model
 		Basis : ''
 		Forms : ''
 
+	getName: -> @get('Name')
 	getID: -> @get('ID')
-	getTye: -> @get('Type')
+	getType: -> @get('Type')
 	getUnit: -> @get('Unit')
 	getTimeLimit: -> @get('TimeLimit')
 	getConditions: -> @get('Conditions')

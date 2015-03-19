@@ -1,4 +1,5 @@
 {
+	"Name" : "事项名称",
 	"ID" : "事项ID",
 	"Type" : "事项类别",
 	"Unit" : "受理单位",
@@ -7,5 +8,5 @@
 	"Materials" : "所需申办材料",
 	"Procedures" : "办理流程",
 	"Basis" : "设立依据",
-	"Forms" "data/form_example.json"
+	"Forms" : "data/form_example.json"
 }

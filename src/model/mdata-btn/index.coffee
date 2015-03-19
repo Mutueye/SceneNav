@@ -8,7 +8,7 @@ class MDataBtn extends Model
 		Url : ''
 
 	getName: -> @get('Name')
-	getTye: -> @get('Type')
+	getType: -> @get('Type')
 	getUrl: -> @get('Url')
 
 module.exports = MDataBtn

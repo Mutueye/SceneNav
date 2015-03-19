@@ -1,17 +1,17 @@
 [
 	{
 		"Name" : "我想了解落户高新区流程图",
-		"type" : "link",
+		"Type" : "link",
 		"Url" : "http://www.baidu.com"
 	},
 	{
 		"Name" : "企业项目",
-		"type" : "list",
+		"Type" : "list",
 		"Url" : "data/mNode_2_1_2.json"
 	},
 	{
 		"Name" : "公共项目",
-		"type" : "list",
+		"Type" : "list",
 		"Url" : "data/mNode_2_1_3.json"
-	},
+	}
 ]
