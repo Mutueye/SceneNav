@@ -5,26 +5,26 @@
 			.col-content
 				table.table
 					tr
-						td 受理单位
+						td.text-right(width = '30%') 受理单位：
 						td= model.getUnit()
 					tr
-						td 办理地点
+						td.text-right 办理地点：
 						td= model.getAddress()
 					tr
-						td 联系电话
+						td.text-right 联系电话：
 						td= model.getTel()
 					tr
-						td 办理期限
+						td.text-right 办理期限：
 						td= model.getTimeLimit()
 					tr
-						td 办理条件
+						td.text-right 办理条件：
 						td= model.getConditions()
 					tr
-						td 所需申办材料
+						td.text-right 所需申办材料：
 						td(id = 'materials')
 					tr
-						td 设立依据
+						td.text-right 设立依据：
 						td=model.getBasis()
 					tr
-						td 表格下载
+						td.text-right 表格下载：
 						td(id = 'forms')
