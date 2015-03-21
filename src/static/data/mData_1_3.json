@@ -1,12 +1,12 @@
 {
-	"Name" : "事项名称",
-	"ID" : "事项ID",
-	"Type" : "事项类别",
-	"Unit" : "受理单位",
-	"TimeLimit" : "办理期限",
-	"Conditions" : "办理条件",
-	"Materials" : "所需申办材料",
-	"Procedures" : "办理流程",
-	"Basis" : "设立依据",
+	"dic_name" : "事项名称",
+	"id" : "事项ID",
+	"AcceptDept" : "受理单位",
+	"Address" : "办理地点",
+	"Tel" : "联系电话",
+	"PromiseTimeLimit" : "办理期限",
+	"ProcessCondition" : "办理条件",
+	"Materials" : "data/materials_example.json",
+	"ProcessFoundation" : "设立依据",
 	"Forms" : "data/form_example.json"
 }

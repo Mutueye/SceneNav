@@ -28,7 +28,8 @@ class Nav extends View
 	clickMatters: (e) ->
 		if !$('[data-nav = matters]').hasClass('sel')
 			@changeNavSel('matters')
-			@root().router.navigate('#!/matters/mNode', trigger: true)
+			#@root().router.navigate('#!/matters/mNode', trigger: true)
+			@root().router.navigate('#!/matters/GetMNode.ashx', trigger: true)
 
 	clickWSBS: (e) ->
 		# window.open('http://www.baidu.com')

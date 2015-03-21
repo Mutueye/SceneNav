@@ -58,7 +58,8 @@ class PageMatters extends View
 		
 
 	setMatterGuide: (param) ->
-		nodeUrl = 'data/' + param + '.json'
+		#nodeUrl = 'data/' + param + '.json'
+		nodeUrl = 'handler/' + param
 		@matterguide.buildMatterNode(nodeUrl)
 
 	# events #

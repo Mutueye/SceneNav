@@ -41,7 +41,8 @@ class MatterGuide extends View
 			newMNode.url = childModel.getParentUrl()
 			newMNode.fetch(
 				success : (model, resp, options)->
-					routerUrl = childModel.getParentUrl().slice(5,-5)
+					#routerUrl = childModel.getParentUrl().slice(5,-5)
+					routerUrl = childModel.getParentUrl().slice(8)
 					if currentUrl != childModel.getParentUrl()
 						createOneNode(model, thisNodeLevel-1)
 					appeendNewNode(model, 'selected', childModel.getParentID(), routerUrl)			

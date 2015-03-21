@@ -3,26 +3,26 @@ Model = require('bamjs/backbone').Model
 class MDataTable extends Model
 	
 	defaults:
-		Name : ''
-		ID : ''
-		Type : ''
-		Unit : ''
-		TimeLimit : ''
-		Conditions : ''
+		dic_name : ''
+		id : ''
+		AcceptDept : ''
+		Address : ''
+		Tel : ''
+		PromiseTimeLimit : ''
+		ProcessCondition : ''
 		Materials : ''
-		Procedures : ''
-		Basis : ''
+		ProcessFoundation : ''
 		Forms : ''
 
-	getName: -> @get('Name')
-	getID: -> @get('ID')
-	getType: -> @get('Type')
-	getUnit: -> @get('Unit')
-	getTimeLimit: -> @get('TimeLimit')
-	getConditions: -> @get('Conditions')
+	getName: -> @get('dic_name')
+	getID: -> @get('id')
+	getUnit: -> @get('AcceptDept')
+	getAddress: -> @get('Address')
+	getTel : -> @get('Tel')
+	getTimeLimit: -> @get('PromiseTimeLimit')
+	getConditions: -> @get('ProcessCondition')
 	getMaterials: -> @get('Materials')
-	getProcedures: -> @get('Procedures')
-	getBasis: -> @get('Basis')
+	getBasis: -> @get('ProcessFoundation')
 	getForms: -> @get('Forms')
 
 
