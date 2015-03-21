@@ -9,10 +9,16 @@ class MapHallFloor extends View
 	namespace = 'map-hall-floor'
 
 	initialize: ->
+		@collection.on(
+			'reset', 
+			-> @render(), 
+			@ 
+		)
+
+	render: ->
 		@$el.html(tmpl(
 			mhbcollection : @collection
 		))
-
 		for el, i in @$('.mhb')
 			new MapHallBtn(
 				el: el

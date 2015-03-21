@@ -24,8 +24,6 @@ class MapHallBtn extends View
 	# events
 	selOn: (e) ->
 		@$('.map-hall-btn').addClass('sel')
-		
-
 
 	selOff: (e) ->
 		@$('.map-hall-btn').removeClass('sel')
