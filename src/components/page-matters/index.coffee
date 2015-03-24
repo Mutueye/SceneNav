@@ -72,10 +72,10 @@ class PageMatters extends View
 
 	# events #
 	onBtnBGXZ: (e) ->
-		alert('表格下载页面建设中')
+		alert('链接到表格下载页面')
 
 	onBtnYKSL: (e) ->
-		alert('一口受理页面建设中')
+		alert('链接到一口受理页面')
 
 	onListRMSX: (e) ->
 		@$('#list_rmsx_content').toggleClass('mobile-hidden')
