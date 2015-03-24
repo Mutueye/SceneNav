@@ -15,6 +15,7 @@ class MatterGuideNode extends View
 		@$el.html(tmpl())
 
 	setNodeView: (type, selected_id, selected_url) ->
+
 		@$el.html(tmpl(
 			mNode : @model
 			type : type
@@ -29,6 +30,7 @@ class MatterGuideNode extends View
 				success : (collection, resp, options) ->
 					if type == 'selected'
 						name = collection.models[selected_id].getName()
+						#alert(selected_url)
 						newMGNS = new MatterGuideNodeSelected(
 							el : $('#title_'+selected_url)
 						)

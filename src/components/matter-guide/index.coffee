@@ -20,10 +20,12 @@ class MatterGuide extends View
 		@$el.html(tmpl())
 
 	buildMatterNode: (nodeUrl) ->
+		
 		@targetMNode = new MNode()
 		@targetMNode.url = nodeUrl
 		@targetMNode.fetch(
 			success : (model, resp, options)->
+				
 				setLevelID(model.getLevel(), currentNodeLevel)		
 				if currentUrl != nodeUrl
 					createOneNode(model, currentNodeLevel-1, currentUrl)
@@ -35,14 +37,21 @@ class MatterGuide extends View
 				console.error('读取导航节点数据失败')
 		)
 
-	createOneNode = (childModel, thisNodeLevel, currentUrl)->
+	createOneNode = (childModel, thisNodeLevel, currentUrl)-> 
+		
 		if childModel.getParentUrl() != ''
 			newMNode = new MNode()
-			newMNode.url = childModel.getParentUrl()
+			temurl = childModel.getParentUrl() 
+			
+			newMNode.url = temurl
 			newMNode.fetch(
 				success : (model, resp, options)->
+					
 					#routerUrl = childModel.getParentUrl().slice(5,-5)
 					routerUrl = childModel.getParentUrl().slice(8)
+					if routerUrl.indexOf(".ashx?id=")>=0
+						routerUrl = routerUrl.split('.ashx?id=')[0]+"_"+routerUrl.split('.ashx?id=')[1]
+					
 					if currentUrl != childModel.getParentUrl()
 						createOneNode(model, thisNodeLevel-1)
 					appeendNewNode(model, 'selected', childModel.getParentID(), routerUrl)			
@@ -50,15 +59,17 @@ class MatterGuide extends View
 					console.error('读取父节点失败')
 			)
 
-	appeendNewNode = (model,type,selected_id,selected_url)->	
+	appeendNewNode = (model,type,selected_id,selected_url)->	 
 		matterGuideNode = new MatterGuideNode(
 			el : $('#level_'+model.getLevel())
 			model : model
 		)
+		
 		matterGuideNode.setNodeView(type, selected_id,selected_url)
 
 	setLevelID = (level, currentNodeLevel)->
 		if(currentNodeLevel > level)
+			
 			$('#level_'+ currentNodeLevel).remove()
 			setLevelID(level, currentNodeLevel-1)
 		if(currentNodeLevel == level)
@@ -72,8 +83,6 @@ class MatterGuide extends View
 		
 		
 
-
-	
 
 
 	# events
