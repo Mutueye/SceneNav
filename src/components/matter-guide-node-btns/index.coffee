@@ -4,7 +4,14 @@ tmpl = require('./index.jade')
 class MatterGuideNodeBtns extends View
 	namespace = 'matter-guide-node-btns'
 
-	setView: ()  ->
+	initialise: ->
+		@collection.on(
+			'reset', 
+			-> @setView(), 
+			@ 
+		)
+
+	setView:  ->
 		@$el.html(tmpl(
 			collection : @collection
 		))

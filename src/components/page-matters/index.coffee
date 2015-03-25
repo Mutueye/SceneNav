@@ -22,6 +22,7 @@ class PageMatters extends View
 
 		@rmsxCollection = new MatterCollection()
 		@rmsxCollection.url = 'handler/GetRmsxList.ashx'
+		#@rmsxCollection.url = 'data/list_rmsx.json'
 		@rmsxCollection.fetch(
 			reset : true
 			#success : (collection, resp, options)->
@@ -38,6 +39,7 @@ class PageMatters extends View
 		
 		@kstdCollection = new MatterCollection()
 		@kstdCollection.url = 'handler/GetKstdList.ashx'
+		#@kstdCollection.url = 'data/list_kstd.json'
 		@kstdCollection.fetch(
 			reset : true
 			#success : (collection, resp, options)->
@@ -63,11 +65,12 @@ class PageMatters extends View
 			param = param.split("_")[0]+".ashx?id="+param.split("_")[1];
 		else
 			param += '.ashx'
-		#nodeUrl = 'data/' + param + '.json'
 		if param.slice(0,7) == "handler"
 			nodeUrl = param
 		else
 			nodeUrl = 'handler/' + param
+
+		#nodeUrl = 'data/' + param + '.json'
 		@matterguide.buildMatterNode(nodeUrl)
 
 	# events #

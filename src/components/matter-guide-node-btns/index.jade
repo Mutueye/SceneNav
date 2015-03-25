@@ -7,5 +7,6 @@
 				.col-content
 					if(btn.getType() == 'list' || btn.getType() == 'table')
 						a.btn-select-matter(href = '#!/matters/' + btn.getUrl().slice(8).split('.ashx?id=')[0]+"_"+btn.getUrl().slice(8).split('.ashx?id=')[1])= btn.getName()
+						//a.btn-select-matter(href = '#!/matters/' + btn.getUrl().slice(5,-5))= btn.getName()
 					if(btn.getType() == 'link')
 						a.btn-select-matter(href = btn.getUrl() target = '_blank')= btn.getName()

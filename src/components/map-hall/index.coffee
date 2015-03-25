@@ -21,7 +21,7 @@ class MapHall extends View
 		@mapHallBtnCollection_F1.fetch(
 			reset : true
 			success : (collection, resp, options) ->
-				alert('success')
+				#alert('success')
 			error : (collection, resp, options) ->
 				alert('error: ' + resp.responseText)
 		)
@@ -38,7 +38,7 @@ class MapHall extends View
 		@mapHallBtnCollection_F2.fetch(
 			reset : true
 			success : (collection, resp, options) ->
-				alert('success')
+				#alert('success')
 			error : (collection, resp, options) ->
 				alert('error: ' + resp.responseText)
 		)

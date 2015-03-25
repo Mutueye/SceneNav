@@ -8,7 +8,14 @@ MDataMaterials = require('../../model/mdata-material/collection')
 class MatterGuideNodeTable extends View
 	namespace = 'matter-guide-node-table'
 
-	setView: ()  ->
+	initialise: ->
+		@model.on(
+			'change',
+			-> @setView(),
+			@
+		)
+
+	setView: ->
 		@$el.html(tmpl(
 			model : @model
 		))

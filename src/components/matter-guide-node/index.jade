@@ -4,12 +4,21 @@ if type == 'selected'
 		.matter-head-text(id = 'title_'+s_url)
 		.matter-head-tail
 		.dotted-vline
+		.matter-head-number-arrow
 		a.btn-reselect(href='#!/matters/'+s_url) 重选
 if type == 'end'
-	.matter-head
-		.matter-head-number= mNode.getLevel()+1
-		.matter-head-text(id = 'title_'+s_url)
-		.matter-head-tail
-		.dotted-vline
-	.matter-infobox(id = 'info_'+s_url)
+	if mNode.getType() == 'list'
+		.matter-head
+			.matter-head-number= mNode.getLevel()+1
+			.matter-head-text(id = 'title_'+s_url)
+			.matter-head-tail
+			.dotted-vline
+			.matter-head-number-arrow
+		.matter-infobox(id = 'info_'+s_url)
+	if mNode.getType() == 'table'
+		.matter-head
+			.matter-head-text-2(id = 'title_'+s_url)
+			.matter-head-tail-2
+			.dotted-vline
+		.matter-infobox(id = 'info_'+s_url)
 		

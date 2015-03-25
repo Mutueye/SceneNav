@@ -30,7 +30,6 @@ class MatterGuideNode extends View
 				success : (collection, resp, options) ->
 					if type == 'selected'
 						name = collection.models[selected_id].getName()
-						#alert(selected_url)
 						newMGNS = new MatterGuideNodeSelected(
 							el : $('#title_'+selected_url)
 						)

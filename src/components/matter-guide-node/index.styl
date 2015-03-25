@@ -5,14 +5,31 @@
 	display block
 	position relative
 	margin-bottom 2px
+	position relative
 	@media MOBILE
 		height 44px
+	.matter-head-number-arrow
+		position absolute
+		left 44px
+		width 5px
+		height 10px
+		top 22px
+		background-image url('img/matter-head-number.png')
+		background-repeat no-repeat
+		background-position left center
+		@media RETINA
+			background-image url('img/matter-head-number@2x.png')
+			background-size 100%
+		@media MOBILE
+			left 39px
+			top 17px
 	.matter-head-number
-		width 44px
+		width 34px
 		height 34px
 		line-height 34px
 		float left
 		border 10px solid #ffffff
+		border-right 0px
 		background-color GREEN
 		text-align center
 		font-size 16px
@@ -28,10 +45,31 @@
 		float left
 		display block
 		font-size 16px
+		padding-left 10px
 		color BLACK_GRAY
 		@media MOBILE
 			line-height 44px
 			font-size 14px
+			padding-left 5px
+	.matter-head-text-2
+		width auto
+		line-height 34px
+		background-color GREEN
+		text-align left
+		float left
+		display block
+		font-size 16px
+		color #ffffff !important
+		padding 0px 10px
+		border 10px solid #ffffff
+		border-right 0px
+		color BLACK_GRAY
+		@media MOBILE
+			line-height 34px
+			border 5px solid #ffffff
+			border-right 0px
+			font-size 14px
+			padding 0px 5px 0px 8px
 	.matter-head-tail
 		width 54px
 		height 54px
@@ -45,9 +83,27 @@
 		@media MOBILE
 			width 44px
 			height 44px
+	.matter-head-tail-2
+		width 59px
+		height 54px
+		display block
+		float left
+		background-image url('img/matter-head-tail-2.png')
+		background-repeat no-repeat
+		@media RETINA
+			background-image url('img/matter-head-tail-2@2x.png')
+			background-size 100%
+		@media MOBILE
+			background-image url('img/matter-head-tail-m.png')
+			width 49px
+			height 44px
+			@media RETINA
+				background-image url('img/matter-head-tail-m@2x.png')
+				background-size 100%
+
 	.dotted-vline
 		position absolute
-		left 32px
+		left 28px
 		bottom 43px
 		width 2px
 		height COMMON_SPACE + 20
@@ -57,7 +113,7 @@
 			background-image url('img/dotted-vline@2x.png')
 			background-size 100%
 		@media MOBILE
-			left 27px
+			left 22px
 			bottom 37px
 			height COMMON_SPACE+10
 	.btn-reselect
