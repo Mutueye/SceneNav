@@ -30,8 +30,7 @@ class MapHall extends View
 			parent : @
 			collection : @mapHallBtnCollection_F1
 		)
-
-
+ 
 		
 		@mapHallBtnCollection_F2 = new MapHallBtnCollection()
 		@mapHallBtnCollection_F2.url = 'data/hall_level_2.json'
