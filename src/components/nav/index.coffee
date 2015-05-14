@@ -33,7 +33,9 @@ class Nav extends View
 
 	clickWSBS: (e) ->
 		# window.open('http://www.baidu.com')
-		alert('链接到高新区政务网网上办事页面')
+		# alert('链接到高新区政务网网上办事页面')
+		window.open("http://gxqsp.qingdao.gov.cn/Channel/Catalog.aspx?Catalog=00005","_blank");
+
 
 	clickLSLP: (e) ->
 		if $('[data-nav = lslp-sub]').css('display') == 'none'
@@ -45,15 +47,16 @@ class Nav extends View
 
 	clickLSLP1: (e) ->
 		# window.open('http://www.baidu.com')
-		alert('链接到高新区政务网市场主体设立联审联批页面')
+		alert('建设中！')
 
 	clickLSLP2: (e) ->
 		# window.open('http://www.baidu.com')
-		alert('链接到高新区政务网建设工程项目联审联批页面')
+		alert('建设中！')
 
 	clickHDJL: (e) ->
 		# window.open('http://www.baidu.com')
-		alert('链接到高新区政务网互动交流页面')
+		# alert('链接到高新区政务网互动交流页面')
+		window.open("http://gxqsp.qingdao.gov.cn/OnlineQuery/QueryList.aspx","_blank")
 
 
 
