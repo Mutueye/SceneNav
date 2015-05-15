@@ -6,25 +6,25 @@
 				table.table
 					tr
 						td.text-right(width = '30%') 受理单位：
-						td= model.getUnit()
+						td!= model.getUnit()
 					tr
 						td.text-right 办理地点：
-						td= model.getAddress()
+						td!= model.getAddress()
 					tr
 						td.text-right 联系电话：
-						td= model.getTel()
+						td!= model.getTel()
 					tr
 						td.text-right 办理期限：
-						td= model.getTimeLimit()
+						td!= model.getTimeLimit()
 					tr
 						td.text-right 办理条件：
-						td= model.getConditions()
+						td!= model.getConditions()
 					tr
 						td.text-right 所需申办材料：
 						td(id = 'materials')
 					tr
 						td.text-right 设立依据：
-						td=model.getBasis()
+						td!=model.getBasis()
 					tr
 						td.text-right 表格下载：
 						td(id = 'forms')
