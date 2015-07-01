@@ -1,5 +1,5 @@
 {
-	"dic_name" : "事项名称",
+	"dic_name" : "行政审批事项的详细名称",
 	"id" : "事项ID",
 	"AcceptDept" : "受理单位",
 	"Address" : "办理地点",

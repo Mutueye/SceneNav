@@ -21,21 +21,18 @@ class Nav extends View
 
 	# Events #
 	clickHome: (e) ->
-		# if !$('[data-nav = home]').hasClass('sel')
-		@changeNavSel('home')
-		@root().router.navigate('#!/', trigger: true)
+		if !$('[data-nav = home]').hasClass('sel')
+			@changeNavSel('home')
+			@root().router.navigate('#!/', trigger: true)
 
 	clickMatters: (e) ->
 		if !$('[data-nav = matters]').hasClass('sel')
 			@changeNavSel('matters')
-			#@root().router.navigate('#!/matters/mNode', trigger: true)
-			@root().router.navigate('#!/matters/GetMNode_0', trigger: true)
+			@root().router.navigate('#!/matters/mNode', trigger: true)
 
 	clickWSBS: (e) ->
-		# window.open('http://www.baidu.com')
 		# alert('链接到高新区政务网网上办事页面')
 		window.open("http://gxqsp.qingdao.gov.cn/Channel/Catalog.aspx?Catalog=00005","_blank");
-
 
 	clickLSLP: (e) ->
 		if $('[data-nav = lslp-sub]').css('display') == 'none'
@@ -47,14 +44,13 @@ class Nav extends View
 
 	clickLSLP1: (e) ->
 		# window.open('http://www.baidu.com')
-		alert('建设中！')
+		alert('建设中')
 
 	clickLSLP2: (e) ->
 		# window.open('http://www.baidu.com')
-		alert('建设中！')
+		alert('建设中')
 
 	clickHDJL: (e) ->
-		# window.open('http://www.baidu.com')
 		# alert('链接到高新区政务网互动交流页面')
 		window.open("http://gxqsp.qingdao.gov.cn/OnlineQuery/QueryList.aspx","_blank")
 

@@ -1,19 +1,21 @@
 ul.ulist
 	width auto
 	height auto
-	border-top 1px solid GRAY_E3
 	li
-		width 100%
+		width auto
+		padding 0px 10px 10px 10px
 		height auto
-		border-bottom 1px dotted GRAY_E3
+		@media MOBILE
+			padding 0px 5px 5px 5px
 		.ulist-content
 			width 100%
 			font-size 14px
-			text-indent 20px
+			text-indent 16px
 			color lighten(BLACK_GRAY,20%)
 			line-height 34px
 			display block
 			text-decoration none
+			background-color lighten(OCEAN_BLUE,95%)
 			position relative
 			&:hover
 				background-color OCEAN_BLUE
@@ -29,9 +31,6 @@ ul.ulist
 				position absolute
 				width 2px
 				height 2px
-				left 13px
+				left 8px
 				top 16px
 				background-color lighten(BLACK_GRAY,20%)
-
-	.last-li
-		border-bottom none

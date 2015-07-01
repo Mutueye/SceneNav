@@ -1,0 +1,12 @@
+{
+	"dic_name" : "公司名称核准",
+	"id" : "事项ID",
+	"AcceptDept" : "工商局",
+	"Address" : "高新区管委会创新大厦政务办理大厅2楼13号窗口",
+	"Tel" : "0532-10293847",
+	"PromiseTimeLimit" : "30天",
+	"ProcessCondition" : "符合公司名称核准的相关办理条件",
+	"Materials" : "data/materials_example.json",
+	"ProcessFoundation" : "1.公司名称核准设立依据；<br>2.关于公司名称核准的相关规定。",
+	"Forms" : "data/form_example.json"
+}

@@ -1,13 +1,12 @@
 View = require('bamjs/view')
 
-MNode = require('../../model/mnode')
 MatterGuideNode = require('../matter-guide-node')
+MatterDataCollection = require('../../model/matter-data/collection')
 tmpl = require('./index.jade')
 
 class MatterGuide extends View
 	namespace = 'matter-guide'
-	currentNodeLevel = 0
-	currentUrl = ''
+	currentLevelNum = 0
 	events:
 		'touchstart .btn-reselect' : 'onCssTouchStart'
 		'touchstart .btn-select-matter' : 'onCssTouchStart'
@@ -19,74 +18,51 @@ class MatterGuide extends View
 	initialize: ->
 		@$el.html(tmpl())
 
-	buildMatterNode: (nodeUrl) ->
-		
-		@targetMNode = new MNode()
-		@targetMNode.url = nodeUrl
-		@targetMNode.fetch(
-			success : (model, resp, options)->
-				
-				setLevelID(model.getLevel(), currentNodeLevel)		
-				if currentUrl != nodeUrl
-					createOneNode(model, currentNodeLevel-1, currentUrl)
-					appeendNewNode(model, 'end', null, null)
-				currentNodeLevel = model.getLevel()
-				currentUrl = nodeUrl
-
-			error : (model, resp, options)->
-				console.error('读取导航节点数据失败')
-		)
-
-	createOneNode = (childModel, thisNodeLevel, currentUrl)-> 
-		
-		if childModel.getParentUrl() != ''
-			newMNode = new MNode()
-			temurl = childModel.getParentUrl() 
-			
-			newMNode.url = temurl
-			newMNode.fetch(
-				success : (model, resp, options)->
-					
-					#routerUrl = childModel.getParentUrl().slice(5,-5)
-					routerUrl = childModel.getParentUrl().slice(8)
-					if routerUrl.indexOf(".ashx?id=")>=0
-						routerUrl = routerUrl.split('.ashx?id=')[0]+"_"+routerUrl.split('.ashx?id=')[1]
-					
-					if currentUrl != childModel.getParentUrl()
-						createOneNode(model, thisNodeLevel-1)
-					appeendNewNode(model, 'selected', childModel.getParentID(), routerUrl)			
-				error : (model, resp, options)->
-					console.error('读取父节点失败')
+	buildMatterNode: (reqValues) ->
+		if !@matterDataCollection
+			@matterDataCollection = new MatterDataCollection()
+			@matterDataCollection.url = 'data/matterData.json'
+			@matterDataCollection.fetch(
+				reset : true
+				success : (collection, resp, options) ->
+					createMatterNodes(reqValues, collection)
+				error : (collection, resp, options) ->
+					console.error('Fetch data failure：' + resp.responseText)
 			)
-
-	appeendNewNode = (model,type,selected_id,selected_url)->	 
-		matterGuideNode = new MatterGuideNode(
-			el : $('#level_'+model.getLevel())
-			model : model
-		)
-		
-		matterGuideNode.setNodeView(type, selected_id,selected_url)
-
-	setLevelID = (level, currentNodeLevel)->
-		if(currentNodeLevel > level)
-			
-			$('#level_'+ currentNodeLevel).remove()
-			setLevelID(level, currentNodeLevel-1)
-		if(currentNodeLevel == level)
-			if !$('#level_'+level).html()
-				$('#matter-guide-nodes').append('<div id = "level_' + level + '"></div>')
-		if(currentNodeLevel < level)
-			if !$('#level_'+currentNodeLevel).html()
-				$('#matter-guide-nodes').append('<div id = "level_' + currentNodeLevel + '"></div>')
-			setLevelID(level, currentNodeLevel+1)
-		
-		
+		else createMatterNodes(reqValues, @matterDataCollection)
 		
 
+	createMatterNodes = (reqValues, dataCollection) ->
+		_currentData = _baseData = dataCollection.models
+		_totleNum = _buildNum = reqValues.length
+		if currentLevelNum > _buildNum
+			_totleNum = currentLevelNum
 
+		for i in[1.._totleNum]
+			if i == 1
+				_currentData = _baseData
+				_dataType = 'list'
+			if i == 2
+				if _baseData[reqValues[1]]
+					_dataType = _baseData[reqValues[1]].getType()
+					_currentData = _baseData[reqValues[1]].getChildData()	
+			if i >= 3
+				if _currentData[reqValues[i-1]]
+					_dataType = _currentData[reqValues[i-1]]['Type']
+					_currentData = _currentData[reqValues[i-1]]['ChildData']
+
+			if i <= _buildNum
+				if !$('#level_'+i).html()
+					$('#matter-guide-nodes').append('<div style="display:none;" id = "level_' + i + '"></div>')
+				_matterGuideNode = new MatterGuideNode(el : $('#level_' + i))
+				_matterGuideNode.setHtmlView(_currentData, _dataType, i, reqValues)
+				$('#level_'+i).fadeIn(100)
+			if i > _buildNum
+				$('#level_'+i).fadeOut(100)
+
+		currentLevelNum = _buildNum
 
 	# events
-
 	onCssTouchStart: (e) ->
 		$(e.target).addClass('touched')
 

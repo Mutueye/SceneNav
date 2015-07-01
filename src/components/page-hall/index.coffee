@@ -13,8 +13,6 @@ class PageHall extends View
 			parent: @
 		)
 
-	draw: ->
-
 	hide: ->
 		@$el.addClass('hidden')
 

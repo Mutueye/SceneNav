@@ -1,7 +1,7 @@
 View = require('bamjs/view')
-{ debounce, extend, range, intersection } = require('bamjs/underscore')
-qs = require('querystring')
-url = require('url')
+# { debounce, extend, range, intersection } = require('bamjs/underscore')
+#qs = require('querystring')
+#url = require('url')
 
 Pages = 
 	home: require('../../components/page-home')
@@ -20,7 +20,6 @@ class Webapp extends View
 			parent: @
 		)
 		@showPage()
-		
 
 	showPage: (req) ->
 		if !req
@@ -30,28 +29,27 @@ class Webapp extends View
 			page = req.name
 			param = req.values[0]
 
-			
+		if param
+			reqValues = param.split('_')
+
 		newPage = @pages[page]
 
-		@currentPage?.hide()
-		@currentPage = newPage
+		if @currentPage 
+			if @currentPage != newPage
+				@currentPage.hide()
+				@currentPage = newPage
+
 		unless newPage
 			# Build page #
 			options = 
 				el: @$("[id='!/#{page}']")
 				parent: @
-			@drawPage(page, param, options)
+			@currentPage = new Pages[page](options)
 			@pages[page] = @currentPage
 		# show the page
-		@currentPage.show(req)
+		@currentPage.show()
 		@nav.changeNavSel(page)
-		switch page
-			when 'matters'
-				@currentPage.setMatterGuide(param)
-
-	drawPage: (page, param, options) ->
-		@currentPage = new Pages[page](options)
-
-
+		if page == 'matters'
+				@currentPage.setMatterGuide(reqValues)
 
 module.exports = Webapp

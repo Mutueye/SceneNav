@@ -1,11 +1,7 @@
 View = require('bamjs/view')
 tmpl = require('./index.jade')
 
-MatterGuideNodeSelected = require('../matter-guide-node-selected')
-MatterGuideNodeBtns = require('../matter-guide-node-btns')
 MatterGuideNodeTable = require('../matter-guide-node-table')
-MDataBtn = require('../../model/mdata-btn')
-MDataBtnCollection = require('../../model/mdata-btn/collection')
 MDataTable = require('../../model/mdata-table')
 
 class MatterGuideNode extends View
@@ -14,54 +10,70 @@ class MatterGuideNode extends View
 	initialize: ->
 		@$el.html(tmpl())
 
-	setNodeView: (type, selected_id, selected_url) ->
+	setHtmlView:(data, dataType, levelId, reqValues) ->
+		_selectedName = ''
+		_currentUrl = ''
+		_infoUrl = ''
+		_btns = []
 
-		@$el.html(tmpl(
-			mNode : @model
-			type : type
-			s_id : selected_id
-			s_url : selected_url
-		))
-		if @model.getType() == 'list'
-			@mDataBtnCollection = new MDataBtnCollection()
-			@mDataBtnCollection.url = @model.getDataUrl()
-			@mDataBtnCollection.fetch(
-				reset : true
-				success : (collection, resp, options) ->
-					if type == 'selected'
-						name = collection.models[selected_id].getName()
-						newMGNS = new MatterGuideNodeSelected(
-							el : $('#title_'+selected_url)
-						)
-						newMGNS.setView(name)
-					if type == 'end'
-						$('#title_'+selected_url).html('请从以下分类中选择')
-						newMGNB = new MatterGuideNodeBtns(
-							el : $('#info_'+selected_url)
-							collection: collection
-						)
-						newMGNB.setView()
-				error : (collection, resp, options) ->
-					alert('取数失败'+resp.responseText)
-			)
+		if dataType == 'list'
+			for dataItem,i  in data
+				if levelId == 1
+					_name = dataItem.getName()
+					_type = dataItem.getType()
+					_childData = dataItem.getChildData()
+				else 
+					_name = dataItem['Name']
+					_type = dataItem['Type']
+					_childData = dataItem['ChildData']
+				_obj =
+					Name : _name
+					Type : _type
+					ChildData : _childData
+					id : i
+				_btns.push(_obj)
 
-		if @model.getType() == 'table'
+		if(reqValues[levelId])
+			_nodeType = 'selected'
+			if levelId == 1
+				_selectedName = data[reqValues[levelId]].getName()
+			else if levelId >= 2
+				_selectedName = data[reqValues[levelId]]['Name']
+		else
+			_nodeType = 'end'
+
+		if levelId == 1 
+			_currentUrl = reqValues[0]
+		else
+			for i in [1..levelId-1]
+				_currentUrl += '_' + reqValues[i]
+			_currentUrl = reqValues[0] + _currentUrl
+
+		if dataType == 'info'
+			_infoUrl = data
 			@mDataTable = new MDataTable()
-			@mDataTable.url = @model.getDataUrl()
+			@mDataTable.url = _infoUrl
 			@mDataTable.fetch(
 				success : (model, resp, options) ->
-					$('#title_'+selected_url).html(model.getName())
+					$('#title_'+_currentUrl).html(model.getName())
 					newMGNT = new MatterGuideNodeTable(
-						el : $('#info_'+selected_url)
+						el : $('#info_'+_currentUrl)
 						model : model
 					)
 					newMGNT.setView()
 				error : (model, resp, options) ->
 					alert('error'+ resp.responseText)
 			)
-			
 
 
-
+		@$el.html(tmpl(
+			btns : _btns
+			headNumber : levelId
+			nodeType : _nodeType
+			dataType : dataType
+			selectedName : _selectedName
+			currentUrl : _currentUrl
+		))
+	
 
 module.exports = MatterGuideNode

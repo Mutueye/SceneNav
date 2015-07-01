@@ -1,14 +1,14 @@
 Model = require('bamjs/backbone').Model
 
-class MDataBtn extends Model
+class MatterData extends Model
 	
 	defaults:
 		Name : ''
 		Type : ''
-		Url : ''
+		ChildData : ''
 
 	getName: -> @get('Name')
 	getType: -> @get('Type')
-	getUrl: -> @get('Url')
+	getChildData: -> @get('ChildData')
 
-module.exports = MDataBtn
+module.exports = MatterData

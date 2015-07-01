@@ -7,6 +7,7 @@ MatterGuide = require('../matter-guide')
 MatterModel = require('../../model/matter-list')
 MatterCollection = require('../../model/matter-list/collection')
 
+
 class PageMatters extends View
 	namespace = 'page-matters'
 	
@@ -21,8 +22,8 @@ class PageMatters extends View
 		@$el.html(tmpl())
 
 		@rmsxCollection = new MatterCollection()
-		@rmsxCollection.url = 'handler/GetRmsxList.ashx'
-		#@rmsxCollection.url = 'data/list_rmsx.json'
+		#@rmsxCollection.url = 'handler/GetRmsxList.ashx'
+		@rmsxCollection.url = 'data/list_rmsx.json'
 		@rmsxCollection.fetch(
 			reset : true
 			#success : (collection, resp, options)->
@@ -38,8 +39,8 @@ class PageMatters extends View
 
 		
 		@kstdCollection = new MatterCollection()
-		@kstdCollection.url = 'handler/GetKstdList.ashx'
-		#@kstdCollection.url = 'data/list_kstd.json'
+		#@kstdCollection.url = 'handler/GetKstdList.ashx'
+		@kstdCollection.url = 'data/list_kstd.json'
 		@kstdCollection.fetch(
 			reset : true
 			#success : (collection, resp, options)->
@@ -57,21 +58,9 @@ class PageMatters extends View
 			el : @$('#matter_guide')
 			parent : @
 		)
-		
 
-	setMatterGuide: (param) ->
-
-		if param.indexOf('_')>=0 
-			param = param.split("_")[0]+".ashx?id="+param.split("_")[1];
-		else
-			param += '.ashx'
-		if param.slice(0,7) == "handler"
-			nodeUrl = param
-		else
-			nodeUrl = 'handler/' + param
-
-		#nodeUrl = 'data/' + param + '.json'
-		@matterguide.buildMatterNode(nodeUrl)
+	setMatterGuide: (reqValues) ->
+		@matterguide.buildMatterNode(reqValues)
 
 	# events #
 	onBtnBGXZ: (e) ->

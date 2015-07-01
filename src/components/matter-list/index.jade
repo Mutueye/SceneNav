@@ -1,11 +1,6 @@
 ul.ulist
 	- var matters = matterCollection.models
 	for matter,i in matters
-		if i < matters.length - 1
-			li
-				a.ulist-content(href=matter.getLink())= matter.getInfo()
-					.ulist-dot
-		else
-			li.last-li
-				a.ulist-content(href=matter.getLink())= matter.getInfo()
-					.ulist-dot
+		li
+			a.ulist-content(href=matter.getLink())!= matter.getInfo()
+				.ulist-dot

@@ -17,12 +17,16 @@ class BusList extends View
 
 	# events #
 	hide : (e) ->
-		@$('.bus-list-bg').addClass('hidden')
-		@$('.bus-list').addClass('hidden')
+		#@$('.bus-list-bg').addClass('hidden')
+		#@$('.bus-list').addClass('hidden')
+		@$('.bus-list-bg').fadeOut(100)
+		@$('.bus-list').fadeOut(100)
 
 	show : (e) ->
-		@$('.bus-list-bg').removeClass('hidden')
-		@$('.bus-list').removeClass('hidden')
+		#@$('.bus-list-bg').removeClass('hidden')
+		#@$('.bus-list').removeClass('hidden')
+		@$('.bus-list-bg').fadeIn(100)
+		@$('.bus-list').fadeIn(100)
 
 module.exports = BusList
 

@@ -14,9 +14,6 @@ class PageHome extends View
 			parent: @
 		)
 
-	draw: ->
-		
-
 	hide: ->
 		@$el.addClass('hidden')
 
