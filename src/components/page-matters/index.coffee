@@ -64,12 +64,12 @@ class PageMatters extends View
 
 	# events #
 	onBtnBGXZ: (e) ->
-		# alert('链接到表格下载页面')
-		window.open("http://gxqsp.qingdao.gov.cn/Broadcast/Broadcast.aspx?type=infogsgg","_blank")
+		alert('建设中')
+		# window.open("http://gxqsp.qingdao.gov.cn/Broadcast/Broadcast.aspx?type=infogsgg","_blank")
 
 	onBtnYKSL: (e) ->
-		# alert('链接到一口受理页面')
-		window.open("http://gxqsp.qingdao.gov.cn/Bulletin/Businessview.aspx?infoFlowId=01870&infoFlowName=一口受理","_blank")
+		alert('建设中')
+		# window.open("http://gxqsp.qingdao.gov.cn/Bulletin/Businessview.aspx?infoFlowId=01870&infoFlowName=一口受理","_blank")
 
 	onListRMSX: (e) ->
 		@$('#list_rmsx_content').toggleClass('mobile-hidden')

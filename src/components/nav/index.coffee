@@ -31,8 +31,8 @@ class Nav extends View
 			@root().router.navigate('#!/matters/mNode', trigger: true)
 
 	clickWSBS: (e) ->
-		# alert('链接到高新区政务网网上办事页面')
-		window.open("http://gxqsp.qingdao.gov.cn/Channel/Catalog.aspx?Catalog=00005","_blank");
+		alert('建设中')
+		# window.open("http://gxqsp.qingdao.gov.cn/Channel/Catalog.aspx?Catalog=00005","_blank");
 
 	clickLSLP: (e) ->
 		if $('[data-nav = lslp-sub]').css('display') == 'none'
@@ -51,8 +51,8 @@ class Nav extends View
 		alert('建设中')
 
 	clickHDJL: (e) ->
-		# alert('链接到高新区政务网互动交流页面')
-		window.open("http://gxqsp.qingdao.gov.cn/OnlineQuery/QueryList.aspx","_blank")
+		alert('建设中')
+		# window.open("http://gxqsp.qingdao.gov.cn/OnlineQuery/QueryList.aspx","_blank")
 
 
 
